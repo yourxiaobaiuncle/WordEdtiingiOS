@@ -84,7 +84,7 @@
 -(UIButton *)addButton{
     if (!_addButton) {
         _addButton=[UIButton buttonWithType:UIButtonTypeCustom];
-        _addButton.frame=CGRectMake(158*XHSizeW,554*XHSizeW , 60, 60);
+        _addButton.frame=CGRectMake(158*XHSizeW,554*XHSizeH , 60, 60);
         _addButton.layer.masksToBounds=YES;
         _addButton.layer.cornerRadius=30;
         [_addButton setImage:[UIImage imageNamed:@"add"] forState:UIControlStateNormal];

@@ -11,6 +11,9 @@
 
 #import "UIColor+Additions.h"
 #import "WordTool.h"
+#import "Masonry.h"
+#define kSafeArea_Top (kDevice_Is_iPhoneX? 44: 20)
+#define kDevice_Is_iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
 #define XHScreenW [UIScreen mainScreen].bounds.size.width
 #define XHScreenH [UIScreen mainScreen].bounds.size.height
 #define XHSizeH [UIScreen mainScreen].bounds.size.height/667
@@ -24,6 +27,9 @@
 //#define weChatKey @"K1u3jdLLn4PdR4eo"
 #define weChatKey @"wxdaf962e64f99ab38"
 #define weChatSecret @"0b91ff9c091b78d17e095ab1b8f95d0b"
+//itms-apps://itunes.apple.com/us/app/字签/id1366152336?l=zh&ls=1&mt=8
+//itms-apps://itunes.apple.com/cn/app/xin-dong-qian-bao/id1213698227?mt=8
+#define appStoreUrl @"itms-apps://itunes.apple.com/us/app/id1366152336"
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 

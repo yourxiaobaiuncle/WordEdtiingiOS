@@ -95,6 +95,8 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row==1&&indexPath.section==2) {
         [self.navigationController pushViewController:[[AboutMeViewController alloc] init] animated:YES];
+    }else if(indexPath.row==0&&indexPath.section==2){
+        [[UIApplication sharedApplication]openURL:[NSURL URLWithString:appStoreUrl]];
     }
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

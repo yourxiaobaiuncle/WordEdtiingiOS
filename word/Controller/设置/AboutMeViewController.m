@@ -26,6 +26,17 @@
     self.navigationItem.leftBarButtonItem.tintColor=mainColor;
     // Do any additional setup after loading the view.
     [self.view addSubview:self.myTableView];
+    [self.myTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.view.mas_left);
+        make.right.mas_equalTo(self.view.mas_right);
+        make.top.mas_equalTo(self.view.mas_top);
+        if (@available(iOS 11.0,*)) {
+            make.bottom.mas_equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+        }else{
+            make.bottom.mas_equalTo(self.view.mas_bottom);
+        }
+    }];
+    
 }
 -(void)leftBack:(UIBarButtonItem*)sender{
     [self.navigationController popViewControllerAnimated:YES];
@@ -34,7 +45,7 @@
     return 1;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return self.myImageView.image.size.height*XHSizeH;
+    return self.myImageView.image.size.height;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -47,15 +58,16 @@
 -(UIImageView *)myImageView{
     if (!_myImageView) {
         _myImageView=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"aboutMe"]];
-        _myImageView.frame=CGRectMake(0, 0, _myImageView.image.size.width*XHSizeW, _myImageView.image.size.height*XHSizeH);
+        _myImageView.frame=CGRectMake(0, 0, _myImageView.image.size.width, _myImageView.image.size.height);
     }
     return _myImageView;
 }
 -(UITableView *)myTableView{
     if (!_myTableView) {
-        _myTableView=[[UITableView alloc] initWithFrame:[UIScreen mainScreen].bounds style:UITableViewStylePlain];
+        _myTableView=[[UITableView alloc] initWithFrame:CGRectMake(0,44+kSafeArea_Top,[UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-44-kSafeArea_Top) style:UITableViewStylePlain];
         _myTableView.backgroundColor=[UIColor lightGrayColor];
         _myTableView.dataSource=self;
+    
         _myTableView.delegate=self;
     }
     return _myTableView;

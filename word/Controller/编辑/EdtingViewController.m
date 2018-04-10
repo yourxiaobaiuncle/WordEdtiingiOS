@@ -40,7 +40,7 @@
     if (!_myCollectionView) {
         UICollectionViewFlowLayout*flowLayout=[[UICollectionViewFlowLayout alloc] init];
         flowLayout.scrollDirection=UICollectionViewScrollDirectionHorizontal;
-        _myCollectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(0, 576*XHSizeW, XHScreenW, 92*XHSizeH) collectionViewLayout:flowLayout];
+        _myCollectionView=[[UICollectionView alloc] initWithFrame:CGRectMake(0, 576*XHSizeH, XHScreenW, 92*XHSizeH) collectionViewLayout:flowLayout];
         _myCollectionView.backgroundColor=[UIColor colorWithHex:@"#EFEFEF" andColorAlpha:1.0];
         _myCollectionView.dataSource=self;
         _myCollectionView.delegate=self;
